@@ -21,7 +21,7 @@ public class CineApp {
     public static int sillas[] = new int[100];
     public static int sillasOrden[] = new int[100];
     
-    public static int numeros[] = {};
+    public static int numeros[] = {22,34,23,3,3,4,6,7,4,9,12,13,12,34,34};
 
     public static int menor = 0; //Variable para almacenar el menor del cine
     public static int mayor = 0; //Variable para almacenar el mayor del cine
@@ -65,6 +65,23 @@ public class CineApp {
             }
         }
 
+    }
+    
+    public static void promedios(){
+       int pares=0,impares=0,proPares=0,proImpares=0,sumaPares=0,sumaImpares=0;
+        
+        for (int i = 0; i < numeros.length; i++) {
+            
+            if (numeros[i] %2 ==0) {
+                pares++;
+                sumaPares += numeros[i];
+            }
+            else{
+            impares++;
+            sumaImpares += numeros[i];
+            }
+        }
+        //Imprimir promedios y totales
     }
 
     //Mpetodo para elegir operación a realizar
