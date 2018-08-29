@@ -14,14 +14,15 @@ public class CineApp {
             + "\n 4. Nueva función"
             + "\n 5. Mostrar el mayor"
             + "\n 6. Mostrar el menor"
-            + "\n 7. Mostrar orden de usuarios";
+            + "\n 7. Mostrar orden de usuarios"
+            + "\n 8. Mostrar promedios";
 
     // public static int sillas[] = new int[100];
     
     public static int sillas[] = new int[100];
     public static int sillasOrden[] = new int[100];
     
-    public static int numeros[] = {22,34,23,3,3,4,6,7,4,9,12,13,12,34,34};
+    public static int numeros[] = {22,34,23,3,3,4,6,7,4,9,12,13,12,34,34}; //Lenar arreglo por usuario
 
     public static int menor = 0; //Variable para almacenar el menor del cine
     public static int mayor = 0; //Variable para almacenar el mayor del cine
@@ -62,14 +63,19 @@ public class CineApp {
                     ordenar();
                     respuesta = operar();
                     break;
+                case 8:
+                    promedios();
+                    respuesta = operar();
+                    break;
             }
         }
 
     }
     
     public static void promedios(){
-       int pares=0,impares=0,proPares=0,proImpares=0,sumaPares=0,sumaImpares=0;
-        
+       int pares=0,impares=0,sumaPares=0,sumaImpares=0;
+       double proPares=0,proImpares=0;
+       
         for (int i = 0; i < numeros.length; i++) {
             
             if (numeros[i] %2 ==0) {
@@ -81,6 +87,11 @@ public class CineApp {
             sumaImpares += numeros[i];
             }
         }
+        proPares = sumaPares/pares;
+        proImpares = sumaImpares/impares;
+        
+        imprimir("El promedio de pares es: " + proPares + "\n La suma de sus elementos es: " + sumaPares + "\n El número de elementos es: " + pares);
+        imprimir("El promedio de pares es: " + proImpares + "\n La suma de sus elementos es: " + sumaImpares + "\n El número de elementos es: " + impares);
         //Imprimir promedios y totales
     }
 
@@ -204,6 +215,10 @@ public class CineApp {
     public static int operar() {
         int dato = JOptionPane.showConfirmDialog(null, "¿Desea realizar una nueva operación?", null, JOptionPane.YES_NO_OPTION);
         return dato;
+    }
+    
+    public static void imprimir(String dato){
+        JOptionPane.showMessageDialog(null, dato);
     }
 
 }
